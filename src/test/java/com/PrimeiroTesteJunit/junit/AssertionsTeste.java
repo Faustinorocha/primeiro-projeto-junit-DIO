@@ -1,6 +1,8 @@
 package com.PrimeiroTesteJunit.junit;
 
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -38,5 +40,12 @@ public class AssertionsTeste {
         double outroValor = 5.0;
 
         assertEquals(valor, outroValor);
+
+    }
+
+    @Test
+    void validarAlgoSomenteNoUsuarioFaust(){
+        Assumptions.assumeFalse("faust".equals(System.getenv("USER")));
+        Assertions.assertEquals(10, 5 + 5);
     }
 }
